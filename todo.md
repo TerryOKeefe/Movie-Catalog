@@ -13,10 +13,10 @@
         [x] - Take inventory of the existing code
         [ ] - List notes here ...
             -- App.js --
-                [ ] - Home Page is setup
-                    [ ] - Need to setup Details Page
-                        [ ] - Import Details Page into App.js
-                    [ ] - Setup Movie Page
+                [x] - Home Page is setup for us
+                    [x] - Need to setup Details Page component
+                        [x] - Import Details Page into App.js
+                    [ ] - Need to setup Add a Movie Page component
                         [ ] - Import Movie Page
                 [x] - Movie List component setup
             -- index.js --
