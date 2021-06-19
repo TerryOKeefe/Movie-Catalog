@@ -11,19 +11,25 @@ function AddMovie() {
     const history = useHistory();
     const dispatch = useDispatch();
 
+   
+    // local state variable to hold inputs
     const [newMovie, setNewMovie] = useState({
         title: '',
         poster: '',
         description: '',
+        movie_id: null,
+        genre_id: null
     });
 
-    // dispatch new movie to redux
-    dispatch({type: 'ADD_MOVIE', payload: newMovie})
+   
     
     // function to handle save button click
     const handleClick = () => {
         // check to see what gets captured 
         console.log('New Movie', newMovie);
+         // dispatch new movie to redux
+        dispatch({type: 'ADD_MOVIE', payload: newMovie})
+        
     } // end handleClick
 
     // function to set new values for movie
@@ -68,7 +74,11 @@ function AddMovie() {
                     />
                 </div>
                 <div>
-                    <select name="Genre">
+                    <select 
+                        name="Genre" 
+                        onChange={(event) => handleInputs('genre_id', event.target.value)}
+                    >
+                        <option value="0"></option>
                         <option value="1">Adventure</option>
                         <option value="2">Animated</option>
                         <option value="3">Biographical</option>

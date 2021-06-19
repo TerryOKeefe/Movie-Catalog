@@ -17,7 +17,7 @@ function DetailsView() {
         console.log('Clicked Back to Movies');
 
         // go back to movie list home
-        history.push('/');
+        history.goBack();
     } // end handleClick
 
     return (

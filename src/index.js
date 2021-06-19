@@ -20,7 +20,15 @@ function* rootSaga() {
 
 function* addMovie(action) {
     // log to see what comes in
-    console.log('addMove Response:', action.payload);
+    console.log('addMovie Response:', action.payload);
+    // console log to check id
+    console.log('addMovie payload id:', action.payload.id);
+    try {
+        yield axios.post('/api/movie', action.payload);
+        yield put(" type: 'FETCH_MOVIES", response.data)
+    } catch (error) {
+        console.log('Error in POST:', error);
+    }
 
 } // end addMovie
 
