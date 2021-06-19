@@ -1,25 +1,24 @@
 // import react-redux 
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import MovieList from '../MovieList/MovieList';
 
 // function to display movie details
 function DetailsView() {
 
-    // varible for redux store
+    // variable for redux store
     const details = useSelector(store => store.details)
 
     // setup useHistory
     const history = useHistory();
 
-
+    // function to handle click
     const handleClick = () => {
         // console log to see click fires
         console.log('Clicked Back to Movies');
 
         // go back to movie list home
         history.push('/');
-    }
+    } // end handleClick
 
     return (
         <div>
@@ -35,7 +34,7 @@ function DetailsView() {
                             />
                             <p>{detail.description}</p>
                             <h4>Genres</h4>
-                            <p>{detail.genre_list}</p>
+                            <p>{detail.genre}</p>
                         </div>
                     )
                 })}

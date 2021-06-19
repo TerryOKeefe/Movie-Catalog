@@ -23,7 +23,7 @@ function* fetchDetails(action) {
     // get details for id selected in movie list
     console.log('action.payload id', action.payload.id)
     try {
-        const response = yield axios.get(`/api/movie/${action.payload.id}`);
+        const response = yield axios.get(`/api/genre/${action.payload.id}`);
         console.log('Response in fetchDetails', response.data);
         yield put({type: 'SET_DETAILS', payload: response.data})
     } catch (error) {

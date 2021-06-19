@@ -20,28 +20,28 @@
                         [ ] - Import Movie Page to app.js
                 [x] - Movie List component setup
             -- index.js --
-                [ ] - Redux store setup along with Middleware
-                [ ] - rootSaga setup
-                    [ ] - Generator function for fetchAllMovies setup
+                [x] - Redux store setup along with Middleware
+                [x] - rootSaga setup
+                    [x] - Generator function for fetchAllMovies setup
             -- server.js --
-                [ ] - movie.router.js setup
-                [ ] - genre.router.js needs setup
-                    [ ] - setup router.get to query database for genres
+                [x] - movie.router.js setup
+                [x] - genre.router.js needs setup
+                    [x] - setup router.get to query database for genres
     -- Home/List Page --
         [x] - Header
         [x] - Nav bar?
         [x] - When a movie poster is clicked, a user should be brought to the /details view for that movie
-            [ ] - Setup details page to show individual details by ID.
+            [x] - Setup details page to show individual details by ID.
         [x] - Setup a way to get to the Add Movie Page
     -- Details Page --
-        [ ] - This should show all the details including ALL genres for the selected movie
+        [x] - This should show all the details including ALL genres for the selected movie
             [x] - Setup DetailsView component
             [x] - Create route /details in app.js
-            [ ] - Store this data in redux
-            [ ] - GET request for a specific movie? req.params? :id?
-        [ ] - The details page should a [Back to List] button
-            [ ] - This should bring the user to the Home/List Page
-            [ ] - Base mode does not require the movie details to load correctly after refresh of the browser
+            [x] - Store this data in redux
+            [x] - GET request for a specific movie? req.params? :id?
+        [x] - The details page should have a [Back to List] button
+            [x] - This should bring the user to the Home/List Page
+            [x] - Base mode does not require the movie details to load correctly after refresh of the browser
     -- Add Movie Page --
         [ ] - Setup form for Add Movie Page
             [x] - An input field (for the movie title)
