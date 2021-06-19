@@ -10,12 +10,12 @@
 -- Setup --
     [x] - npm install for dependencies
     -- Feature List --
-        [ ] - Take inventory of the existing code
+        [x] - Take inventory of the existing code
         [ ] - List notes here ...
             -- App.js --
-                [ ] - Home Page setup
-                    [ ] - Setup Details Page
-                        [ ] - Import Details Page
+                [ ] - Home Page is setup
+                    [ ] - Need to setup Details Page
+                        [ ] - Import Details Page into App.js
                     [ ] - Setup Movie Page
                         [ ] - Import Movie Page
                 [x] - Movie List component setup
@@ -28,6 +28,8 @@
                 [ ] - genre.router.js needs setup
                     [ ] - setup router.get to query database for genres
     -- Home/List Page --
+        [x] - Header
+        [x] - Nav bar?
         [ ] - When a movie poster is clicked, a user should be brought to the /details view for that movie
         [ ] - Setup a way to get to the Add Movie Page
     -- Details Page --
