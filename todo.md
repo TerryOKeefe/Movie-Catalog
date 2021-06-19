@@ -4,20 +4,21 @@
     [ ] - Comments on code
 
 -- Database Setup --
-    [ ] - Create a database name `saga_movies_weekend`
-    [ ] - Run the queries from `database.sql` on the `saga_movies_weekend`
+    [x] - Create a database name `saga_movies_weekend`
+    [x] - Run the queries from `database.sql` on the `saga_movies_weekend`
 
 -- Setup --
+    [x] - npm install for dependencies
     -- Feature List --
-        [ ] - Take inventory of the existing code
+        [x] - Take inventory of the existing code
         [ ] - List notes here ...
             -- App.js --
-                [ ] - Home Page setup
-                    [ ] - Setup Details Page
-                        [ ] - Import Details Page
-                    [ ] - Setup Movie Page
+                [x] - Home Page is setup for us
+                    [x] - Need to setup Details Page component
+                        [x] - Import Details Page into App.js
+                    [ ] - Need to setup Add a Movie Page component
                         [ ] - Import Movie Page
-                [ ] - Movie List component setup
+                [x] - Movie List component setup
             -- index.js --
                 [ ] - Redux store setup along with Middleware
                 [ ] - rootSaga setup
@@ -33,6 +34,8 @@
         [ ] - Setup a way to get to the Add Movie Page
     -- Details Page --
         [ ] - This should show all the details including ALL genres for the selected movie
+            [x] - Setup DetailsView component
+            [x] - Create route /details in app.js
             [ ] - Store this data in redux
             [ ] - GET request for a specific movie? req.params? :id?
         [ ] - The details page should a [Back to List] button
