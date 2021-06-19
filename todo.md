@@ -30,8 +30,9 @@
     -- Home/List Page --
         [x] - Header
         [x] - Nav bar?
-        [ ] - When a movie poster is clicked, a user should be brought to the /details view for that movie
-        [ ] - Setup a way to get to the Add Movie Page
+        [x] - When a movie poster is clicked, a user should be brought to the /details view for that movie
+            [ ] - Setup details page to show individual details by ID.
+        [x] - Setup a way to get to the Add Movie Page
     -- Details Page --
         [ ] - This should show all the details including ALL genres for the selected movie
             [x] - Setup DetailsView component
@@ -43,11 +44,11 @@
             [ ] - Base mode does not require the movie details to load correctly after refresh of the browser
     -- Add Movie Page --
         [ ] - Setup form for Add Movie Page
-            [ ] - An input field (for the movie title)
-            [ ] - An input field (for the movie poster image URL)
-            [ ] - A text area (for the movie description)
-            [ ] - A dropdown (for the genres)
-            [ ] - A [Cancel] button, which should bring the user to the Home/List Page
+            [x] - An input field (for the movie title)
+            [x] - An input field (for the movie poster image URL)
+            [x] - A text area (for the movie description)
+            [x] - A dropdown (for the genres)
+            [x] - A [Cancel] button, which should bring the user to the Home/List Page
             [ ] - A [Save] button, which should save the inputs in the database and bring the user to the Home/List Page
                 [ ] - Home/List page should render the new movie added
 
