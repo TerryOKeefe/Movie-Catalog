@@ -6,7 +6,7 @@ import './AddMovie.css';
 // function to add a movie
 function AddMovie() {
 
-    // import useHistory
+    // setup useHistory
     const history = useHistory();
 
     // useState to hold all inputs from user

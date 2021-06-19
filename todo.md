@@ -17,7 +17,7 @@
                     [x] - Need to setup Details Page component
                         [x] - Import Details Page into App.js
                     [ ] - Need to setup Add a Movie Page component
-                        [ ] - Import Movie Page
+                        [ ] - Import Movie Page to app.js
                 [x] - Movie List component setup
             -- index.js --
                 [ ] - Redux store setup along with Middleware
