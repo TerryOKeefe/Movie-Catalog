@@ -27,8 +27,8 @@
                 [ ] - genre.router.js needs setup
                     [ ] - setup router.get to query database for genres
     -- Home/List Page --
-        [ ] - Header
-        [ ] - Nav bar?
+        [x] - Header
+        [x] - Nav bar?
         [ ] - When a movie poster is clicked, a user should be brought to the /details view for that movie
         [ ] - Setup a way to get to the Add Movie Page
     -- Details Page --
