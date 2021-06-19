@@ -3,6 +3,7 @@ import './App.css';
 import Header from '../Header/Header';
 import MovieList from '../MovieList/MovieList';
 import DetailsView from '../DetailsView/DetailsView';
+import AddMovie from '../AddMovie/AddMovie';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <DetailsView />
         </Route>
         {/* Add Movie page */}
+          <AddMovie />
       </Router>
     </div>
   );
