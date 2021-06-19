@@ -1,26 +1,45 @@
-// import react and react-redux 
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+// import react-redux 
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import MovieList from '../MovieList/MovieList';
 
 // function to display movie details
 function DetailsView() {
 
-    // setup dispatch
-    const dispatch = useDispatch();
+    // varible for redux store
+    const details = useSelector(store => store.details)
 
-    // useEffect for getDetails
-    useEffect(() => {
-        getDetails() // load once
-    }, []);
+    // setup useHistory
+    const history = useHistory();
 
-    // function to get individual details
-    const getDetails = () => {
-        dispatch({type: 'GET_DETAILS'});
+
+    const handleClick = () => {
+        // console log to see click fires
+        console.log('Clicked Back to Movies');
+
+        // go back to movie list home
+        history.push('/');
     }
 
     return (
         <div>
             <h1>Movie Details Page</h1>
+            <button onClick={handleClick}>Back to Movies</button>
+            <section className="details-list">
+                {details.map(detail => {
+                    return (
+                        <div key={detail.id} >
+                            <h3>{detail.title}</h3>
+                            <img src={detail.poster}
+                            alt={detail.title}
+                            />
+                            <p>{detail.description}</p>
+                            <h4>Genres</h4>
+                            <p>{detail.genre_list}</p>
+                        </div>
+                    )
+                })}
+            </section>
         </div>
     )
 } // end DetailsView

@@ -14,12 +14,19 @@ function MovieList() {
     }, []);
 
     // handle onClick for movie poster
-    function handleMovieClick() {
+    const handleMovieClick = (movie) => {
         // console log to see poster click fired
         console.log('Clicked Poster');
-
+        
         // on click change to /details view
         history.push('/details');
+        
+        // console log to see we get correct id clicked
+        console.log('Movie id clicked', movie);
+
+        // dispatch to index.js
+        dispatch({type: 'GET_DETAILS', payload: movie});
+        
     } // end handleMovieClick
 
     return (
@@ -33,7 +40,7 @@ function MovieList() {
                             <img src=
                             {movie.poster} 
                             alt={movie.title}
-                            onClick={() => {handleMovieClick()}}
+                            onClick={() => {handleMovieClick(movie)}}
                             />
                         </div>
                     );
