@@ -15,10 +15,19 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('GET_DETAILS', fetchDetails);
+    yield takeEvery('ADD_MOVIE', addMovie)
 }
 
-function* fetchDetails(action) {
+function* addMovie(action) {
+    // log to see what comes in
+    console.log('addMove Response:', action.payload);
 
+} // end addMovie
+
+
+// generator function to get details by id
+function* fetchDetails(action) {
+    // console log to see what comes back
     console.log('In fetchDetails, payload:', action.payload);
     // get details for id selected in movie list
     console.log('action.payload id', action.payload.id)

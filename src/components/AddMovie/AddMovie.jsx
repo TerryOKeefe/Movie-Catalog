@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Button, MenuItem, TextField } from '@material-ui/core';
 import './AddMovie.css';
@@ -8,80 +9,80 @@ function AddMovie() {
 
     // setup useHistory
     const history = useHistory();
+    const dispatch = useDispatch();
 
-    // useState to hold all inputs from user
-    // const [newMovie, setNewMovie] = useState({
-    //     title : title,
-    //     poster : poster,
-    //     description : description, 
-    //     name : name
-    // });
+    const [newMovie, setNewMovie] = useState({
+        title: '',
+        poster: '',
+        description: '',
+    });
 
-    const handleSubmit = () => {
+    // dispatch new movie to redux
+    dispatch({type: 'ADD_MOVIE', payload: newMovie})
+    
+    // function to handle save button click
+    const handleClick = () => {
+        // check to see what gets captured 
+        console.log('New Movie', newMovie);
+    } // end handleClick
 
-    }
+    // function to set new values for movie
+    const handleInputs = (key, value) => {
+        setNewMovie({...newMovie,
+            [key]: value,
+        })
+    } // end handleInputs
 
+    // function to handle cancel button click
     const handleCancel = () => {
         // console log to see that cancel button is firing
         console.log('Clicked Cancel');
         // cancel add movie - move user to /home
         history.push('/');
-    }
+    } // end handleCancel
 
     return (
         <div>
             <h1>Add A Movie</h1>
-            <form onSubmit={handleSubmit}>
+            <form >
                 <div>
-                    <TextField
-                        id="standard-basic"
-                        label="Movie Title"
+                    <input 
                         type="text"
-                        required
+                        placeholder="Movie Title"
+                        onChange={(event) => handleInputs('title', event.target.value)}
                     />
                 </div>
                 <div>
-                    <TextField
-                        id="standard-basic"
-                        label="Poster Image URL"
+                    <input 
                         type="text"
-                        required
+                        placeholder="Movie Poster URL"
+                        onChange={(event) => handleInputs('poster', event.target.value)}
                     />
                 </div>
                 <div>
-                    <TextField
-                        id="outlined-multiline-static"
-                        label="Multiline"
-                        multiline
-                        rows={4}
-                        defaultValue="Default Value"
-                        variant="outlined"
+                    <textarea 
+                        placeholder="Movie Description"
+                        rows="6"
+                        cols="50"
+                        onChange={(event) => handleInputs('description', event.target.value)}
                     />
                 </div>
                 <div>
-                    <TextField
-                        label="Select Genre"
-                        width="50"
-                        required
-                        select
-                        defaultValue=""
-                        onChange={event => setGenre(event.target.value)}
-                        helperText="Required"
-                    >
-                        <MenuItem value='1'>Adventure</MenuItem>
-                        <MenuItem value='2'>Animated</MenuItem>
-                        <MenuItem value='3'>Biographical</MenuItem>
-                        <MenuItem value='4'>Comedy</MenuItem>
-                        <MenuItem value='5'>Disaster</MenuItem>
-                        <MenuItem value='6'>Drama</MenuItem>
-                        <MenuItem value='7'>Drama</MenuItem>
-                        <MenuItem value='8'>Fantasy</MenuItem>
-                        <MenuItem value='9'>Musical</MenuItem>
-                        <MenuItem value='10'>Romantic</MenuItem>
-                        <MenuItem value='11'>Science Fiction</MenuItem>
-                        <MenuItem value='12'>Space-Opera</MenuItem>
-                        <MenuItem value='13'>Superhero</MenuItem>
-                    </TextField>
+                    <select name="Genre">
+                        <option value="1">Adventure</option>
+                        <option value="2">Animated</option>
+                        <option value="3">Biographical</option>
+                        <option value="4">Comedy</option>
+                        <option value="5">Disaster</option>
+                        <option value="6">Drama</option>
+                        <option value="7">Epic</option>
+                        <option value="8">Fantasy</option>
+                        <option value="9">Musical</option>
+                        <option value="10">Romantic</option>
+                        <option value="11">Science Fiction</option>
+                        <option value="12">Space-Opera</option>
+                        <option value="13">Superhero</option>
+                    </select>
                 </div>
                 <div>
                     <Button
@@ -100,6 +101,7 @@ function AddMovie() {
                         variant="contained"
                         color="primary"
                         type="button"
+                        onClick={handleClick}
                     >
                         Save
                     </Button>
