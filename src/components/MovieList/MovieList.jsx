@@ -22,10 +22,10 @@ function MovieList() {
         history.push('/details');
         
         // console log to see we get correct id clicked
-        console.log('Movie id clicked', movie.id);
+        console.log('Movie id clicked', movie);
 
         // dispatch to index.js
-        dispatch({type: 'FETCH_DETAILS', payload: movie.id})
+        dispatch({type: 'GET_DETAILS', payload: movie});
         
     } // end handleMovieClick
 
