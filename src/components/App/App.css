@@ -22,3 +22,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+#standard-basic {
+  padding: 10px;
+}
+
+.add-btn {
+  margin-top: 10px;
+}
