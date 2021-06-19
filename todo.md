@@ -16,8 +16,8 @@
                 [x] - Home Page is setup for us
                     [x] - Need to setup Details Page component
                         [x] - Import Details Page into App.js
-                    [ ] - Need to setup Add a Movie Page component
-                        [ ] - Import Movie Page to app.js
+                    [x] - Need to setup Add a Movie Page component
+                        [x] - Import Movie Page to app.js
                 [x] - Movie List component setup
             -- index.js --
                 [x] - Redux store setup along with Middleware

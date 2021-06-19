@@ -29,7 +29,6 @@ function* addMovie(action) {
     } catch (error) {
         console.log('Error in POST:', error);
     }
-
 } // end addMovie
 
 

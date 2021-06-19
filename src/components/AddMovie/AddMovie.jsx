@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Button, MenuItem, TextField } from '@material-ui/core';
@@ -21,19 +21,22 @@ function AddMovie() {
         genre_id: null
     });
 
-   
-    
     // function to handle save button click
     const handleClick = () => {
         // check to see what gets captured 
         console.log('New Movie', newMovie);
          // dispatch new movie to redux
         dispatch({type: 'ADD_MOVIE', payload: newMovie})
+
+        // on Save click capture data and push to home
+        history.push('/');
+        
         
     } // end handleClick
 
     // function to set new values for movie
     const handleInputs = (key, value) => {
+        // set new movie object with key and value
         setNewMovie({...newMovie,
             [key]: value,
         })
@@ -116,7 +119,6 @@ function AddMovie() {
                         Save
                     </Button>
                 </div>
-
             </form>
         </div>
     )
