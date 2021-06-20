@@ -4,6 +4,7 @@ import { Button } from '@material-ui/core';
 
 // function to handle Add A Movie button
 function AddBtn() {
+    
       // setup useHistory
   const history = useHistory();
 
@@ -17,10 +18,10 @@ function AddBtn() {
 
     return (
         <div>
+            {/* Button to send user to Add a Movie view */}
             <Button
                 className="add-btn"
                 variant="contained"
-                // color="primary"
                 onClick={handleClick}
             >
                 Add A Movie
