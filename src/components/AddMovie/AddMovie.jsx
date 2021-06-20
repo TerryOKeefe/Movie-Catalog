@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
-
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import './AddMovie.css';
@@ -20,8 +19,7 @@ const useStyles = makeStyles((theme) => ({
     selectEmpty: {
       marginTop: theme.spacing(2),
     },
-  }));
-
+  })); // end useStyles
 
 // function to add a movie
 function AddMovie() {
@@ -45,6 +43,7 @@ function AddMovie() {
     // function to handle save button click
     const handleClick = (event) => {
         event.preventDefault();
+
         // check to see what gets captured 
         console.log('New Movie', newMovie);
          // dispatch new movie to redux
@@ -74,6 +73,7 @@ function AddMovie() {
         <div>
             <h1>Add A Movie</h1>
             <form className="add-movie-form">
+                {/* New movie title input */}
                 <div className="add-movie-input">
                     <TextField
                         id="standard-basic"
@@ -85,6 +85,7 @@ function AddMovie() {
                     />
                 </div>
                 <div className="poster-url-input">
+                    {/* New poster url input */}
                     <TextField
                         id="standard-basic" 
                         label="Movie Poster URL" 
@@ -95,6 +96,7 @@ function AddMovie() {
                     />
                 </div>
                 <FormControl style={{minWidth: 185}} className="select-input">
+                    {/* New genre dropdown input */}
                     <InputLabel>Genre</InputLabel>
                     <Select 
                         name="Genre"
@@ -119,6 +121,7 @@ function AddMovie() {
                     </Select>
                 </FormControl>
                 <div className="textarea-input">
+                    {/* New description input */}
                     <TextField
                         id="outlined-multiline-static"
                         label="Description"
@@ -132,6 +135,7 @@ function AddMovie() {
                 </div>
 
                 <div className="form-buttons">
+                    {/* Cancel button */}
                     <Button
                         className="cancel-btn"
                         size="medium"
@@ -141,6 +145,7 @@ function AddMovie() {
                     >
                         Cancel
                     </Button>
+                    {/* Save button -- captures data */}
                     <Button
                         className='save-btn'
                         size="medium"
