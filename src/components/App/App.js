@@ -4,22 +4,14 @@ import Header from '../Header/Header';
 import MovieList from '../MovieList/MovieList';
 import DetailsView from '../DetailsView/DetailsView';
 import AddMovie from '../AddMovie/AddMovie';
-import AddBtn from '../AddBtn/AddBtn';
+
 
 function App() {
-
-
   return (
     <div className="App">
       {/* Header */}
-      <Header />
-      
+      <Header /> 
       <Router>
-        {/* Moves user to AddMovie view */}
-        <Route>
-          <AddBtn />
-        </Route>
-        
         {/* Movie List */}
         <Route path="/" exact>
           <MovieList />
@@ -33,12 +25,11 @@ function App() {
         {/* Add Movie page */}
         <Route path="/add">
           <AddMovie />
-        </Route>
-          
+        </Route>   
       </Router>
     </div>
   );
 }
 
-
+// export App
 export default App;

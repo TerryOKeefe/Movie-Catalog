@@ -18,6 +18,7 @@ function* rootSaga() {
     yield takeEvery('ADD_MOVIE', addMovie)
 }
 
+// generator function to post movie
 function* addMovie(action) {
     // log to see what comes in
     console.log('addMovie Response:', action.payload);
@@ -25,12 +26,11 @@ function* addMovie(action) {
     console.log('addMovie payload id:', action.payload.id);
     try {
         yield axios.post('/api/movie', action.payload);
-        yield put(" type: 'FETCH_MOVIES", response.data)
+        yield put({ type: 'FETCH_MOVIES'});
     } catch (error) {
         console.log('Error in POST:', error);
     }
 } // end addMovie
-
 
 // generator function to get details by id
 function* fetchDetails(action) {

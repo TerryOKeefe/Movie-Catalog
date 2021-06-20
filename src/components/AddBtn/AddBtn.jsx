@@ -1,4 +1,6 @@
 import { useHistory } from 'react-router-dom';
+import { Button } from '@material-ui/core';
+
 
 // function to handle Add A Movie button
 function AddBtn() {
@@ -15,12 +17,14 @@ function AddBtn() {
 
     return (
         <div>
-            <button
+            <Button
                 className="add-btn"
+                variant="contained"
+                // color="primary"
                 onClick={handleClick}
             >
                 Add A Movie
-            </button>
+            </Button>
         </div>
     )
 } // end AddBtn
