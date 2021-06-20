@@ -37,13 +37,17 @@ function DetailsView() {
                 {details.map(detail => {
                     return (
                         <div className="detail-info" key={detail.id} >
+                            {/* Display movie title */}
                             <h3>{detail.title}</h3>
+                            {/* Display movie poster image */}
                             <img src={detail.poster}
                             alt={detail.title}
                             />
-                             <h4>Genres</h4>
                              <div className="description-box">
+                                 {/* Display movie genre */}
+                                <h4>Genres</h4>
                                 <p>{detail.genre}</p>
+                                {/* Display movie description */}
                                 <h4>Movie Description</h4>
                                 <p>{detail.description}</p>
                              </div>
