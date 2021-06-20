@@ -19,12 +19,12 @@ const useStyles = makeStyles({
     },
     card: {
         margin: 10,
-        height: 400,
+        height: 410,
         width: 300,
         display: "inline-block",
     },
     title: {
-      fontSize: 14,
+      fontSize: 16,
     },
     pos: {
       marginBottom: 12,
@@ -80,15 +80,18 @@ function MovieList() {
                             style={{backgroundColor: "lightgrey"}}
                         >
                             <CardContent key={movie.id}>
+                                {/* Display movie title in card */}
                                 <Typography className={classes.title} color="textSecondary" gutterBottom>
                                     {movie.title}
                                 </Typography>
+                                {/* Display movie poster image in card */}
                                 <Typography>
                                     <img src=
                                         {movie.poster}
                                         alt={movie.title} />
                                 </Typography>
                             </CardContent>
+                            {/* Button to move user to movie details view for image clicked */}
                             <CardActions>
                                 <Button 
                                     size="small"
