@@ -1,4 +1,5 @@
 import { HashRouter as Router, Route } from 'react-router-dom';
+import '@fontsource/roboto';
 import './App.css';
 import Header from '../Header/Header';
 import MovieList from '../MovieList/MovieList';
