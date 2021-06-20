@@ -16,7 +16,7 @@ function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('GET_DETAILS', fetchDetails);
     yield takeEvery('ADD_MOVIE', addMovie)
-}
+} // end rootSaga
 
 // generator function to post movie
 function* addMovie(action) {
@@ -25,9 +25,12 @@ function* addMovie(action) {
     // console log to check id
     console.log('addMovie payload id:', action.payload.id);
     try {
+        // post new movie
         yield axios.post('/api/movie', action.payload);
+        // get the movies to render to DOM
         yield put({ type: 'FETCH_MOVIES'});
     } catch (error) {
+        // console log any errors
         console.log('Error in POST:', error);
     }
 } // end addMovie
@@ -39,14 +42,17 @@ function* fetchDetails(action) {
     // get details for id selected in movie list
     console.log('action.payload id', action.payload.id)
     try {
+        // axios get the details per id
         const response = yield axios.get(`/api/genre/${action.payload.id}`);
+        // console log to see what response.data is
         console.log('Response in fetchDetails', response.data);
+        // set details to store the response.data
         yield put({type: 'SET_DETAILS', payload: response.data})
     } catch (error) {
         // console log errors
         console.log('Error in fetchDetails:', error);
     }
-}
+} // end fetchDetails
 
 function* fetchAllMovies() {
     // get all movies from the DB
@@ -54,12 +60,10 @@ function* fetchAllMovies() {
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
         yield put({ type: 'SET_MOVIES', payload: movies.data });
-
     } catch {
         console.log('get all error');
-    }
-        
-}
+    }    
+} // end fetchAllMovies
 
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
@@ -72,7 +76,7 @@ const details = (state = [], action) => {
         default :
             return state;
     }
-}
+} // end details
 
 // Used to store movies returned from the server
 const movies = (state = [], action) => {
@@ -82,7 +86,7 @@ const movies = (state = [], action) => {
         default:
             return state;
     }
-}
+} // end movies
 
 // Used to store the movie genres
 const genres = (state = [], action) => {
@@ -92,7 +96,7 @@ const genres = (state = [], action) => {
         default:
             return state;
     }
-}
+} // end genres
 
 // Create one store that all components can use
 const storeInstance = createStore(
