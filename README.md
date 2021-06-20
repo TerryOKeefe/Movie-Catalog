@@ -8,6 +8,8 @@ In this project I was presented with a partially built application, that stored 
 
 The second feature tasked to complete was to setup a page which allows the user to add a new movie. The new page takes in text for a movie title, an image url (movie poster), a movie description, and a drop down selector for genre. On submission, this will capture the data, send it to a database, and then render the new movie to the home page. The newly rendered movie will display along with a movie details button.
 
+To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](https://arcane-savannah-13609.herokuapp.com/#/)
+
 ## Screen Shot
 ![](movie-sagas.gif)
 
