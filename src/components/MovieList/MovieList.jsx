@@ -1,54 +1,109 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import './MovieList.css'
+import { HashRouter as Router, Route, useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
+import { Button } from '@material-ui/core';
+import '@fontsource/roboto';
+import AddBtn from '../AddBtn/AddBtn';
+import './MovieList.css';
 
+// setup material-ui style
+const useStyles = makeStyles({
+    root: {
+      minWidth: 100,
+      maxWidth: 300,
+    },
+    card: {
+        margin: 10,
+        height: 400,
+        width: 300,
+        display: "inline-block",
+    },
+    title: {
+      fontSize: 14,
+    },
+    pos: {
+      marginBottom: 12,
+    },
+  });
+
+// function to display movies from DB to DOM
 function MovieList() {
+    // import from material-ui
+    const classes = useStyles();
 
+    // import history and dispatch
     const history = useHistory();
     const dispatch = useDispatch();
+
+    // import movies from redux store
     const movies = useSelector(store => store.movies);
 
+    // on load dispatch FETCH_MOVIES
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIES' });
+        dispatch({ type: 'FETCH_MOVIES' }); // load once
     }, []);
 
     // handle onClick for movie poster
     const handleMovieClick = (movie) => {
         // console log to see poster click fired
-        console.log('Clicked Poster');
-        
-        // on click change to /details view
-        history.push('/details');
-        
-        // console log to see we get correct id clicked
-        console.log('Movie id clicked', movie);
+        // and movie id
+        console.log('Clicked Poster, id is:,', movie);
 
         // dispatch to index.js
-        dispatch({type: 'GET_DETAILS', payload: movie});
-        
+        dispatch({ type: 'GET_DETAILS', payload: movie });
+
+        // on click change to /details view
+        history.push('/details');
     } // end handleMovieClick
 
     return (
         <main>
             <h1>MovieList</h1>
-            <section className="movies">
-                {movies.map(movie => {
+            {/* Moves user to AddMovie view */}
+            <Router>
+                <Route>
+                    <AddBtn />
+                </Route>
+            </Router>
+            {/* Map through and display each in a card */}
+            <div className="card-box">
+                {movies.map((movie) => {
                     return (
-                        <div key={movie.id} >
-                            <h3>{movie.title}</h3>
-                            <img src=
-                            {movie.poster} 
-                            alt={movie.title}
-                            onClick={() => {handleMovieClick(movie)}}
-                            />
-                        </div>
-                    );
+                        <Card 
+                            className={classes.card} 
+                            variant="outlined"
+                            style={{backgroundColor: "lightgrey"}}
+                        >
+                            <CardContent key={movie.id}>
+                                <Typography className={classes.title} color="textSecondary" gutterBottom>
+                                    {movie.title}
+                                </Typography>
+                                <Typography>
+                                    <img src=
+                                        {movie.poster}
+                                        alt={movie.title} />
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button 
+                                    size="small"
+                                    onClick={() => { handleMovieClick(movie) }}
+                                >
+                                    Movie Details
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    )
                 })}
-            </section>
+            </div>
         </main>
-
     );
-}
+} // end MovieList
 
+// export MovieList
 export default MovieList;

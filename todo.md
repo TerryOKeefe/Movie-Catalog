@@ -11,7 +11,7 @@
     [x] - npm install for dependencies
     -- Feature List --
         [x] - Take inventory of the existing code
-        [ ] - List notes here ...
+        [x] - List notes here ...
             -- App.js --
                 [x] - Home Page is setup for us
                     [x] - Need to setup Details Page component
@@ -43,14 +43,14 @@
             [x] - This should bring the user to the Home/List Page
             [x] - Base mode does not require the movie details to load correctly after refresh of the browser
     -- Add Movie Page --
-        [ ] - Setup form for Add Movie Page
+        [x] - Setup form for Add Movie Page
             [x] - An input field (for the movie title)
             [x] - An input field (for the movie poster image URL)
             [x] - A text area (for the movie description)
             [x] - A dropdown (for the genres)
             [x] - A [Cancel] button, which should bring the user to the Home/List Page
-            [ ] - A [Save] button, which should save the inputs in the database and bring the user to the Home/List Page
-                [ ] - Home/List page should render the new movie added
+            [x] - A [Save] button, which should save the inputs in the database and bring the user to the Home/List Page
+                [x] - Home/List page should render the new movie added
 
 -- Base Mode Done --
     [ ] - Invest time in styling it up

@@ -1,17 +1,38 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Button, MenuItem, TextField } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
 import './AddMovie.css';
+
+// setup styles for material-ui
+const useStyles = makeStyles((theme) => ({
+    formControl: {
+      margin: theme.spacing(1),
+      minWidth: 200,
+    },
+    selectEmpty: {
+      marginTop: theme.spacing(2),
+    },
+  }));
+
 
 // function to add a movie
 function AddMovie() {
 
-    // setup useHistory
+    // variable for material-ui classes
+    const classes = useStyles();
+
+    // setup history and dispatch
     const history = useHistory();
     const dispatch = useDispatch();
 
-   
     // local state variable to hold inputs
     const [newMovie, setNewMovie] = useState({
         title: '',
@@ -22,7 +43,8 @@ function AddMovie() {
     });
 
     // function to handle save button click
-    const handleClick = () => {
+    const handleClick = (event) => {
+        event.preventDefault();
         // check to see what gets captured 
         console.log('New Movie', newMovie);
          // dispatch new movie to redux
@@ -30,8 +52,6 @@ function AddMovie() {
 
         // on Save click capture data and push to home
         history.push('/');
-        
-        
     } // end handleClick
 
     // function to set new values for movie
@@ -53,32 +73,33 @@ function AddMovie() {
     return (
         <div>
             <h1>Add A Movie</h1>
-            <form >
-                <div>
-                    <input 
+            <form className="add-movie-form">
+                <div className="add-movie-input">
+                    <TextField
+                        id="standard-basic"
+                        label="Movie Title" 
+                        variant="outlined"
+                        required
                         type="text"
-                        placeholder="Movie Title"
                         onChange={(event) => handleInputs('title', event.target.value)}
                     />
                 </div>
-                <div>
-                    <input 
+                <div className="poster-url-input">
+                    <TextField
+                        id="standard-basic" 
+                        label="Movie Poster URL" 
+                        variant="outlined"
+                        required
                         type="text"
-                        placeholder="Movie Poster URL"
                         onChange={(event) => handleInputs('poster', event.target.value)}
                     />
                 </div>
-                <div>
-                    <textarea 
-                        placeholder="Movie Description"
-                        rows="6"
-                        cols="50"
-                        onChange={(event) => handleInputs('description', event.target.value)}
-                    />
-                </div>
-                <div>
-                    <select 
-                        name="Genre" 
+                <FormControl style={{minWidth: 185}} className="select-input">
+                    <InputLabel>Genre</InputLabel>
+                    <Select 
+                        name="Genre"
+                        defaultValue="0"
+                        required
                         onChange={(event) => handleInputs('genre_id', event.target.value)}
                     >
                         <option value="0"></option>
@@ -95,21 +116,33 @@ function AddMovie() {
                         <option value="11">Science Fiction</option>
                         <option value="12">Space-Opera</option>
                         <option value="13">Superhero</option>
-                    </select>
+                    </Select>
+                </FormControl>
+                <div className="textarea-input">
+                    <TextField
+                        id="outlined-multiline-static"
+                        label="Description"
+                        variant="outlined"
+                        required
+                        multiline
+                        rows={6}
+                        style={{width: 500}}
+                        onChange={(event) => handleInputs('description', event.target.value)}
+                    />
                 </div>
-                <div>
+
+                <div className="form-buttons">
                     <Button
-                        className="feeling-btn"
+                        className="cancel-btn"
                         size="medium"
                         variant="contained"
-                        color="secondary"
                         type="button"
-                        onClick={() => handleCancel()}
+                        onClick={handleCancel}
                     >
                         Cancel
                     </Button>
                     <Button
-                        className="feeling-btn"
+                        className='save-btn'
                         size="medium"
                         variant="contained"
                         color="primary"
