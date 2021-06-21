@@ -11,7 +11,7 @@ The second feature tasked to complete was to setup a page which allows the user 
 To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](https://arcane-savannah-13609.herokuapp.com/#/)
 
 ## Screen Shot
-![](movie-sagas.gif)
+![](movie-saga.gif)
 
 ### Prerequisites
 
