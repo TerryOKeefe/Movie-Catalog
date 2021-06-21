@@ -95,6 +95,8 @@ function MovieList() {
                             <CardActions>
                                 <Button 
                                     size="small"
+                                    color="primary"
+                                    variant="outlined"
                                     onClick={() => { handleMovieClick(movie) }}
                                 >
                                     Movie Details
